@@ -8,6 +8,7 @@ async function forlogin(page) {
     await page.getByPlaceholder('Username').fill(variables.startpack.Username)
     await page.getByPlaceholder('Password').fill(variables.startpack.password)
     await page.getByRole('button', { name: 'Login' }).click();
+     await page.waitForTimeout(3000);
 
 };
 
@@ -20,6 +21,7 @@ test.describe('logintotestaction', () => {
     await page.setDefaultTimeout(0);
     await forlogin(page); 
   });
+   //เริ่มเคสแรกตรงนี้ ทดสอบกดไปที่ดาวน์โหลด bullvpn for windows และเช็คว่าไปหน้านั้นจริงไหม
 test('downloadwindows', async () => {
   await page.goto(variables.startpack.bullmain);
   await page.getByRole('link', { name: 'BullVPN for Windows Download' }).click();
